@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: docker/server.Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - CS_STUN_SERVER=stun:stun.l.google.com:19302
+  turn:
+    build:
+      context: ..
+      dockerfile: docker/turn.Dockerfile
+    ports:
+      - "3478:3478"
+      - "3478:3478/udp"
+    command: ["-n", "--no-cli", "--no-tls", "--no-dtls", "--lt-cred-mech", "--user", "user:pass"]

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at top, #f6f7f9, #dfe4ea 60%, #cdd4dc);
+  color: #111318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.hero {
+  margin-bottom: 32px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  margin: 0 0 8px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2b3038;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 18px 40px rgba(35, 41, 54, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.controls input {
+  flex: 1 1 260px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd3de;
+  font-size: 0.95rem;
+}
+
+.controls button {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  background: #1b1f24;
+  color: #f7f7f7;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#status {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e6ebf2;
+}
+
+video {
+  width: 100%;
+  border-radius: 16px;
+  background: #0f1115;
+  aspect-ratio: 4 / 3;
+}

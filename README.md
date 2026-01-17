@@ -55,6 +55,56 @@ Early scaffold. Only the project intent is defined so far.
 - Implement the simplest possible rotating cube.
 - Get first pixels on a web client.
 
+## Implementation Notes
+
+- Server: raw C with EGL + OpenGL ES rendering into GStreamer `appsrc`.
+- Streaming: GStreamer `webrtcbin` sends H.264 over WebRTC.
+- Signaling: libwebsockets with a minimal JSON protocol.
+
+## Build + Run (Local)
+
+### Server
+
+Dependencies:
+
+- GStreamer (`gstreamer-1.0`, `gstreamer-app-1.0`, `gstreamer-webrtc-1.0`, `gstreamer-sdp-1.0`)
+- libwebsockets
+- EGL + OpenGL ES
+
+Build:
+
+```bash
+cmake -S server -B build
+cmake --build build
+```
+
+Run:
+
+```bash
+./build/cube_server
+```
+
+Set a STUN server (optional):
+
+```bash
+CS_STUN_SERVER=stun:stun.l.google.com:19302 ./build/cube_server
+```
+
+### Client
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Then open the Vite URL and connect to `ws://localhost:8080`.
+
+## Caveats
+
+- Signaling is currently single-client oriented.
+- JSON parsing is intentionally minimal and should be replaced with a robust parser for production.
+
 ---
 
 Minimal by design.
